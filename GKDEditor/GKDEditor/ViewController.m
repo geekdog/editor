@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GKDEditorItemView.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    GKDEditorItemView *itemView = [[GKDEditorItemView alloc] initWithFrame:CGRectMake(0, 0, 100, 100) editorItemType:GKDEditorItemType_Text];
+    [self.view addSubview:itemView];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -1,17 +1,13 @@
 //
-//  GKDEditorItem.m
+//  GKDEditorLabel.m
 //  GKDEditor
 //
 //  Created by 尹鹏飞 on 16/1/26.
 //  Copyright © 2016年 geekdog. All rights reserved.
 //
 
-#import "GKDEditorItem.h"
+#import "GKDEditorLabel.h"
 
-@implementation GKDEditorItem
-
-- (void)dealloc {
-    
-}
+@implementation GKDEditorLabel
 
 @end

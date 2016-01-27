@@ -6,14 +6,14 @@
 //  Copyright © 2016年 geekdog. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "GKDEditorItemDataSource.h"
 #import "GKDEditorItemDelegate.h"
 
-@interface GKDEditorItem : UIView
+@protocol GKDEditorItem <NSObject>
 
-@property (nonatomic, weak, nullable) id <GKDEditorItemDataSource>dataSource;
-@property (nonatomic, weak, nullable) id <GKDEditorItemDelegate>delegate;
+@optional
+@property (nonatomic, weak, nullable) id <GKDEditorItemDataSource>gkd_dataSource;
+@property (nonatomic, weak, nullable) id <GKDEditorItemDelegate>gkd_delegate;
 
 @end
-
