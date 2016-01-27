@@ -15,20 +15,30 @@
     _gkd_item = nil;
 }
 
-- (nonnull instancetype)initWithFrame:(CGRect)aFrame {
+- (nonnull instancetype)initWithFrame:(CGRect)aFrame
+                       editorItemType:(GKDEditorItemType)aType {
     self = [super initWithFrame:aFrame];
     if (self) {
-        _gkd_item = [[GKDEditorItem alloc] init];
-        _gkd_item.dataSource = self;
+        self.gkd_type = aType;
         
         [self addSubview:_gkd_item];
+        _gkd_item.gkd_dataSource = self;
     }
     return self;
 }
 
-- (CGRect)gkd_frame {
-    return self.bounds;
+- (void)setGkd_frame:(CGRect)gkd_frame {
+    if ([self.gkd_item isKindOfClass:[UIView class]]) {
+        ((UIView *)self.gkd_item).frame = gkd_frame;
+    }
 }
+
+//- (CGRect)gkd_frame {
+//    if ([self.gkd_item isKindOfClass:[UIView class]]) {
+//        
+//    }
+//    return self.bounds;
+//}
 
 - (void)setGkd_type:(GKDEditorItemType)gkd_type {
     switch (gkd_type) {
@@ -39,10 +49,12 @@
             break;
         case GKDEditorItemType_Text:
         {
+            _gkd_item = [[GKDEditorLabel alloc] init];
         }
             break;
         case GKDEditorItemType_Image:
         {
+            _gkd_item = [[GKDEditorImageView alloc] init];
         }
             break;
         default:
